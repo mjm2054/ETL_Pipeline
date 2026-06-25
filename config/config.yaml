@@ -1,0 +1,23 @@
+# config/config.yaml
+
+sources:
+  - name: games_csv
+    type: csv
+    path: data/VGSales.csv          # where your file is
+    target_table: stg_games         # main staging table
+    reject_table: stg_games_rejects # rejects table
+    pk: [title]       # logical key for consolidation
+
+    schema:
+      title: str
+      genre: str
+      publisher: str
+      developer: str
+      critic_score: float
+      total_sales: float
+      release_date: datetime
+
+    rules:
+      - rule: "critic_score >= 0"
+      - rule: "total_sales >= 0"
+      - rule: "release_date NOT NULL"
