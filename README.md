@@ -33,7 +33,7 @@ ETL_Cognizant/
     test_clean.py
     test_validate.py
   .env
-  .env.example
+
   requirements.txt
   README.md
 ```
